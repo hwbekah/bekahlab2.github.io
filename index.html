@@ -6,14 +6,16 @@
     <title>JavaScript and DOM API</title>
     <link rel="stylesheet" type="text/css" href="game.css" media="all" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="game.js"></script>
+    <script src="game.js">
+      var bear; // global variable to instantiate the Bear object
+    </script>
     <noscript>
       Warning - JavaScript is Disabled.
       For full functionality of this page, it is necessary to enable JavaScript.
     </noscript>
   </head>
   
-    <body>
+    <body onload="start();"> // invokes the start() function
         <div id="title">
             <h1>Help the bear escape the bees !</h1>
             <p>Bear tries to avoid being stung by <input type="text" id="nbBees" value="1" size="3"> bees by running and jumping. The objective is to have as less stings as possible!</p>
