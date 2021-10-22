@@ -31,6 +31,11 @@ function Bear() {
     if (this.x > w - iw) this.x = w - iw
     if (this.y < 0) this.y = 0;
     if (this.y > h-ih) this.y = h - ih;
+    
+    // speed of bear
+    this.setSpeed = function() {
+      this.dBear = document.getElementById("dBear").value;
+    }
 }
 
 function start() {
