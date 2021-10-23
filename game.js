@@ -18,29 +18,6 @@ function Bear() {
     this.htmlElement.style.display = "block";
   };
   
-  
-  // handle keyboard events to move the bear
-  function moveBear() {
-    // codes of the four keys
-    const KEYUP = 38;
-    const KEYDOWN = 40;
-    const KEYLEFT = 37;
-    const KEYRIGHT = 39;
-  
-    if (e.keyCode == KEYRIGHT) { 
-      bear.move(1, 0)
-    } // right key
-    if (e.keyCode == KEYLEFT) {
-      bear.move(-1, 0)
-    } // left key
-    if (e.keyCode == KEYUP) {
-      bear.move(0, -1)
-    } // up key
-    if (e.keyCode == KEYDOWN) {
-      bear.move(0, 1)
-    } // down key
-  }
-  
   // fit the bear to the board limits
   this.fitBounds = function() {
     let parent = this.htmlElement.parentElement;
@@ -60,6 +37,28 @@ function Bear() {
     this.setSpeed = function() {
       this.dBear = document.getElementById("dBear").value;
     }
+}
+
+// handle keyboard events to move the bear
+function moveBear(e) {
+  // codes of the four keys
+  const KEYUP = 38;
+  const KEYDOWN = 40;
+  const KEYLEFT = 37;
+  const KEYRIGHT = 39;
+
+  if (e.keyCode == KEYRIGHT) { 
+    bear.move(1, 0)
+  } // right key
+  if (e.keyCode == KEYLEFT) {
+    bear.move(-1, 0)
+  } // left key
+  if (e.keyCode == KEYUP) {
+    bear.move(0, -1)
+  } // up key
+  if (e.keyCode == KEYDOWN) {
+    bear.move(0, 1)
+  } // down key
 }
 
 function start() {
