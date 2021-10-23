@@ -45,6 +45,12 @@ function start() {
   
   // add event listener to the kepress event
   document.addEventListener("keydown", moveBear, false);
+
+  // create new array for bees
+  bees = new Array();
+
+  // create bees
+  makeBees();
 }
 
 // handle keyboard events to move the bear
@@ -145,3 +151,23 @@ function createBeeImg(wNum) {
   return img;
 }
 
+function makeBees() {
+  // get number of bees specified by the user
+  let nbBees = document.getElementById("nbBees").value;
+  nbBees = Number(nbBees); // try converting the content of the input to a number
+  if (isNaN(nbBees)) {
+    window.alert("Invalid number of bees");
+    return;
+  } 
+
+  // create bees
+  let i = 1;
+  while (i <= nbBees) {
+    var num = i;
+    var bee = new Bee(num); // create object and its img element
+    bee.display();
+    bee.push(bee); // add the bee object to the bees array
+    i++;
+  }
+
+}
