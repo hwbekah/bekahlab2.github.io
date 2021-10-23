@@ -34,8 +34,8 @@ function Bear() {
   };
 
   // speed of bear
-  this.setSpeed = function() {
-    this.dBear = document.getElementById("dBear").value;
+  this.setSpeed = function(speed) {
+    this.dBear = speed;
   };
 }
 
@@ -67,6 +67,9 @@ function start() {
   
   // add event listener to the kepress event
   document.addEventListener("keydown", moveBear, false);
+
+  var speed = document.gettElementById("dBear").value;
+  bear.setSpeed(speed);
 
   // create new array for bees
   bees = new Array();
