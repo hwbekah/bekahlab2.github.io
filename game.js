@@ -4,20 +4,20 @@ function Bear() {
   this.id = this.htmlElement.id;
   this.x = this.htmlElement.offsetLeft;
   this.y = this.htmlElement.offsetTop;
-  
+
   this.move = function(xDir, yDir) {
     this.fitBounds(); // this keeps the bear within the board
     this.x += this.dBear * xDir;
     this.y += this.dBear * yDir;
     this.display();
   };
-  
+
   this.display = function() {
     this.htmlElement.style.left = this.x + "px";
     this.htmlElement.style.top = this.y + "px";
     this.htmlElement.style.display = "block";
   };
-  
+
   // fit the bear to the board limits
   this.fitBounds = function() {
     let parent = this.htmlElement.parentElement;
@@ -28,9 +28,9 @@ function Bear() {
     let w = parent.offsetWidth;
     let h = parent.offsetHeight;
     if (this.x < 0) this.x = 0;
-    if (this.x > w - iw) this.x = w - iw
+    if (this.x > w - iw) this.x = w - iw;
     if (this.y < 0) this.y = 0;
-    if (this.y > h-ih) this.y = h - ih;
+    if (this.y > h - ih) this.y = h - ih;
   };
 
   // speed of bear
@@ -47,29 +47,28 @@ function moveBear(e) {
   const KEYLEFT = 37;
   const KEYRIGHT = 39;
 
-  if (e.keyCode == KEYRIGHT) { 
-    bear.move(1, 0)
+  if(e.keyCode == KEYRIGHT) {
+    bear.move(1, 0);
   } // right key
-  if (e.keyCode == KEYLEFT) {
-    bear.move(-1, 0)
+  if(e.keyCode == KEYLEFT) {
+    bear.move(-1, 0);
   } // left key
-  if (e.keyCode == KEYUP) {
-    bear.move(0, -1)
+  if(e.keyCode == KEYUP) {
+    bear.move(0, -1);
   } // up key
-  if (e.keyCode == KEYDOWN) {
-    bear.move(0, 1)
+  if(e.keyCode == KEYDOWN) {
+    bear.move(0, 1);
   } // down key
 }
 
 function start() {
   // create bear
   bear = new Bear();
-  
+
   // add event listener to the kepress event
   document.addEventListener("keydown", moveBear, false);
 
-  var speed = document.gettElementById("dBear").value;
-  bear.setSpeed(speed);
+  bear.setSpeed(document.getElementById("dBear").value);
 
   // create new array for bees
   bees = new Array();
@@ -78,7 +77,6 @@ function start() {
   makeBees();
 }
 
-
 class Bee {
   constructor(beeNumber) {
     // the HTML element corresponding to the img of the bee
@@ -86,7 +84,7 @@ class Bee {
 
     this.id = this.htmlElement.id; // HTML id
     this.x = this.htmlElement.offsetLeft; // left position x
-    this.y = this.htmlElement.offsetRight; // top position y
+    this.y = this.htmlElement.offsetTop; // top position y
 
     this.move = function(dx, dy) {
       // move the bees by dx, dy
@@ -101,7 +99,7 @@ class Bee {
       this.htmlElement.style.left = this.x + "px";
       this.htmlElement.style.top = this.y + "px";
       this.htmlElement.style.display = "block";
-    }
+    };
 
     this.fitBounds = function() {
       // check and make sure the bees stay in the board space
@@ -112,22 +110,17 @@ class Bee {
       let t = parent.offsetTop;
       let w = parent.offsetWidth;
       let h = parent.offsetHeight;
-      if (this.x < 0) 
-        this.x = 0;
-      if (this.x > w - iw)
-        this.x = w - iw;
-      if (this.y < 0)
-        this.y = 0
-      if (this.y > h - ih)
-        this.y = h - ih
+      if(this.x < 0) this.x = 0;
+      if(this.x > w - iw) this.x = w - iw;
+      if(this.y < 0) this.y = 0;
+      if(this.y > h - ih) this.y = h - ih;
     };
-
   }
 }
 
 function createBeeImg(wNum) {
   // get dimension and position of the board div
-  let boardDiv = document.gettElementById("board");
+  let boardDiv = document.getElementById("board");
   let boardDivW = boardDiv.offsetWidth;
   let boardDivH = boardDiv.offsetHeight;
   let boardDivX = boardDiv.offsetLeft;
@@ -146,10 +139,10 @@ function createBeeImg(wNum) {
   boardDiv.appendChild(img);
 
   // set initial position
-  let x = getRandonInt(boardDivW);
+  let x = getRandomInt(boardDivW);
   let y = getRandomInt(boardDivH);
-  img.style.left = (boardDivX + x) + "px";
-  img.style.top = (y) + "px";
+  img.style.left = boardDivX + x + "px";
+  img.style.top = y + "px";
 
   // return the img object
   return img;
@@ -162,7 +155,7 @@ function makeBees() {
   if (isNaN(nbBees)) {
     window.alert("Invalid number of bees");
     return;
-  } 
+  }
 
   // create bees
   let i = 1;
@@ -173,5 +166,10 @@ function makeBees() {
     bee.push(bee); // add the bee object to the bees array
     i++;
   }
+}
 
+function getRandomInt(max) {
+  // generates and returns a random integer between 0 and max
+  const rand_i = Math.floor(Math.random() * max);
+  return rand_i;
 }
