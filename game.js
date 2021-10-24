@@ -92,7 +92,7 @@ class Bee {
     this.move = function(dx, dy) {
       // move the bees by dx, dy
       this.x += dx;
-      this.y = dy;
+      this.y += dy;
       this.display();
     };
 
@@ -144,8 +144,8 @@ function createBeeImg(wNum) {
   // set initial position
   let x = getRandomInt(boardDivW);
   let y = getRandomInt(boardDivH);
-  img.style.left = boardDivX + x + "px";
-  img.style.top = y + "px";
+  img.style.left = (boardDivX + x) + "px";
+  img.style.top = (y) + "px";
 
   // return the img object
   return img;
@@ -179,7 +179,7 @@ function getRandomInt(max) {
 
 function moveBees() {
   // get speed input field value
-  let speed = document.getElementId("speedBees").value;
+  let speed = document.getElementById("speedBees").value;
 
   // move each bee to a random location
   for (let i = 0; i < bees.length; i++) {
