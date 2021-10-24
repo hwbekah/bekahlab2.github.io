@@ -75,6 +75,9 @@ function start() {
 
   // create bees
   makeBees();
+
+  // get bees to move continuously
+  updateBees();
 }
 
 class Bee {
@@ -172,4 +175,26 @@ function getRandomInt(max) {
   // generates and returns a random integer between 0 and max
   const rand_i = Math.floor(Math.random() * max);
   return rand_i;
+}
+
+function moveBees() {
+  // get speed input field value
+  let speed = document.getElementId("speedBees").value;
+
+  // move each bee to a random location
+  for (let i = 0; i < bees.length; i++) {
+    let dx = getRandomInt(2 * speed) - speed;
+    let dy = getRandomInt(2 * speed) - speed;
+    bees[i].move(dx, dy);
+  }
+}
+
+function updateBees() {
+  // update loop for game
+  // move bees continously
+  moveBees();
+  // use a fixed update period
+  let period = document.getElementById("periodTimer").value; // modify this to control refresh period
+  // update the timer for the next move
+  updateTimer = setTimeout(updateBees(), period);
 }

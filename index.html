@@ -9,6 +9,7 @@
     <script src="game.js">
       var bear; // global variable to instantiate the Bear object
       var bees; // global variable to instantiate the Bee object
+      var updateTimer; // global var
     </script>
     <noscript>
       Warning - JavaScript is Disabled.
@@ -16,13 +17,13 @@
     </noscript>
   </head>
   
-    <body onload="start();"> // invokes the start() function
+    <body onload="start();">
         <div id="title">
             <h1>Help the bear escape the bees !</h1>
             <p>Bear tries to avoid being stung by <input type="text" id="nbBees" value="1" size="3"> bees by running and jumping. The objective is to have as less stings as possible!</p>
             <p>You can adjust bees' speed <input type="text" id="speedBees" value="50" size="3"> px/ms
                 <br> and the refresh period <input type="text" id="periodTimer" value="10" size="3"> ms </p>
-            <p>You can change the speed of the bear <input type="type" id="dBear" value="100" size="3" onchange="setSpeed()"></p>  
+            <p>You can change the speed of the bear <input type="type" id="dBear" value="100" size="3" onchange="start().setSpeed()"></p>  
           <h2>Press left, right, up, down keys to move the bear</h2>
         </div>
         
