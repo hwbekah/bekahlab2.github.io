@@ -78,6 +78,9 @@ function start() {
 
   // get bees to move continuously
   updateBees();
+
+  // take start time
+  lastStingTime() = new Date();
 }
 
 class Bee {
@@ -247,4 +250,12 @@ function overlap(element1, element2) {
     return false;
   }
   return true;
+}
+
+function addBee() {
+  newVal = parseInt(document.getElementById("nbBees").value) + 1;
+  document.getElementById("nbBees").value = newVal;
+  var newBee = new Bee(newVal);
+  newBee.display();
+  bees.push(newBee);
 }
