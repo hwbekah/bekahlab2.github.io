@@ -198,7 +198,7 @@ function updateBees() {
   // move bees continously
   moveBees();
   // use a fixed update period
-  let period = document.getElementById("periodTimer").value; // modify this to control refresh period
+  let period = parseInt(document.getElementById("periodTimer").value); // modify this to control refresh period
   // update the timer for the next move
   if (hits.innerHTML < 1000) {
     updateTimer = setTimeout("updateBees()", period);
