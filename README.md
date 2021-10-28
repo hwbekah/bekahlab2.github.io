@@ -30,4 +30,4 @@ Activites in this lab concentrates on client-side programming using HTML, CSS, a
 * CSS3
 * JavScript
 
-![gameshot](images/gameshot.png)
+![gameshot](images/gameshot.PNG "gameshot")
