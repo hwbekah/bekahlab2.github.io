@@ -259,3 +259,7 @@ function addBee() {
   newBee.display();
   bees.push(newBee);
 }
+
+function restart() {
+  location.reload();
+}
