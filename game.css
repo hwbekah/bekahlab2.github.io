@@ -28,7 +28,6 @@ h1 {
   position: absolute;
   height: 600px;
   width: 1200px;
-  background-color: rgb(6, 136, 119);
   align-content: center;
   align-self: center;
   /* add forest background image and size*/
@@ -37,13 +36,11 @@ h1 {
 }
 
 #title {
-  background-color: rgb(128, 128, 128);
   align-content: center;
   align-self: center;
 }
 
 #scores {
-  background-color: rgb(247, 134, 241);
   align-content: center;
   align-self: center;
   /* add border around scores */
